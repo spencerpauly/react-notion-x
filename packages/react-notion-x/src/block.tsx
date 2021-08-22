@@ -1,30 +1,29 @@
-import React from 'react'
 import throttle from 'lodash.throttle'
+import * as types from 'notion-types'
 import {
   getBlockIcon,
-  getTextContent,
-  getPageTableOfContents,
   getBlockParentPage,
+  getPageTableOfContents,
+  getTextContent,
   uuidToId
 } from 'notion-utils'
-import * as types from 'notion-types'
-
-import { Checkbox } from './components/checkbox'
-import { PageIcon } from './components/page-icon'
-import { PageTitle } from './components/page-title'
-import { LinkIcon } from './icons/link-icon'
-import { PageHeader } from './components/page-header'
-import { GoogleDrive } from './components/google-drive'
+import React from 'react'
+import { AssetWrapper } from './components/asset-wrapper'
 import { Audio } from './components/audio'
-import { File } from './components/file'
+import { Checkbox } from './components/checkbox'
 import { Equation } from './components/equation'
+import { File } from './components/file'
+import { GoogleDrive } from './components/google-drive'
 import { GracefulImage } from './components/graceful-image'
 import { LazyImage } from './components/lazy-image'
-import { useNotionContext } from './context'
-import { cs, getListNumber, isUrl } from './utils'
-import { Text } from './components/text'
+import { PageHeader } from './components/page-header'
+import { PageIcon } from './components/page-icon'
+import { PageTitle } from './components/page-title'
 import { SyncPointerBlock } from './components/sync-pointer-block'
-import { AssetWrapper } from './components/asset-wrapper'
+import { Text } from './components/text'
+import { useNotionContext } from './context'
+import { LinkIcon } from './icons/link-icon'
+import { cs, getListNumber, isUrl } from './utils'
 
 interface BlockProps {
   block: types.Block
@@ -566,7 +565,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 
     case 'code': {
       if (block.properties.title) {
-        const content = block.properties.title[0][0]
+        const content = block.properties.title.map((i) => i[0]).join('')
         const language = block.properties.language
           ? block.properties.language[0][0]
           : ''
