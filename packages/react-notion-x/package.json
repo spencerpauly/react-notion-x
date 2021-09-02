@@ -1,6 +1,6 @@
 {
-  "name": "spencerpaulynotionx",
-  "version": "4.8.10",
+  "name": "spx-private",
+  "version": "4.8.11",
   "description": "Fast and accurate React renderer for Notion.",
   "repository": "spencerpauly/react-notion-x",
   "author": "Travis Fischer <travis@transitivebullsh.it>",
