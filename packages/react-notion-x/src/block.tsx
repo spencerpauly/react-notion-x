@@ -569,7 +569,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 
     case 'code': {
       if (block.properties.title) {
-        const content = block.properties.title[0][0]
+        const content = block.properties.title.map((i) => i[0]).join('')
         const language = block.properties.language
           ? block.properties.language[0][0]
           : ''
